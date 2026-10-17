@@ -1,0 +1,337 @@
+{
+    "layer":    "top",         // Waybar at top layer
+ // "position": "bottom",      // Waybar position (top|bottom|left|right)
+    "height":   34,            // Waybar height (to be removed for auto height)
+ // "width":    1280,          // Waybar width
+    "spacing":  4,             // Gaps between modules (4px)
+
+ // Choose the order of the modules
+    "modules-left": [
+        "custom/rofi",
+        "hyprland/workspaces",
+        "mpris",
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "hyprland/language",
+        "cpu",
+        "memory",
+        "custom/updates",
+        "custom/notification",
+        "custom/brightness",
+        "pulseaudio",
+        "temperature",
+        // "battery",
+        "tray",
+        "custom/power"
+    ],
+
+    "custom/rofi": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/appsearcher/config.rasi",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+    //"disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "sort-by-number": true,
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+        "*": 5
+    },
+    "format": "{icon} {windows}",
+    "format-window-separator": " <span foreground='#ff0000'>✘</span>",
+    "window-rewrite-default": " ",
+    "window-rewrite": {
+        "title<.*amazon.*>": " ",
+		"title<.*reddit.*>": " ",
+
+		"class<firefox|org.mozilla.firefox|librewolf|floorp|mercury-browser|[Cc]achy-browser>": " ",
+		"class<zen>": "󰰷 ",
+		"class<waterfox|waterfox-bin>": " ",
+		"class<microsoft-edge>": " ",
+		"class<Chromium|Thorium|[Cc]hrome|brave-browser|brave-origin>": " ",
+		"class<tor browser>": " ",
+		"class<firefox-developer-edition>": "🦊 ",
+
+		"class<kitty|konsole|[Aa]lacritty>": " ",
+		"class<kitty-dropterm>": " ",
+		"class<com.mitchellh.ghostty>": " ",
+		"class<org.wezfurlong.wezterm>": " ",
+		"class<play.mii.Boxxy>": " ",
+		"class<Warp|warp|dev.warp.Warp|warp-terminal>": "󰰭 ",
+
+    "class<[Tt]hunderbird|[Tt]hunderbird-esr>": "󰊫 ",
+		"class<org.mozilla.Thunderbird|eu.betterbird.Betterbird>": "󰊫 ",
+		"title<.*gmail.*>": "󰊫 ",
+
+		"class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
+		"class<discord|discord-canary|[Ww]ebcord|[Vv]esktop|com.discordapp.Discord|dev.vencord.Vesktop>": " ",
+		"class<app.fluxer.Fluxer>": "󰭹 ",
+		"class<[Ss]ignal|signal-desktop|org.signal.Signal>": "󰍩 ",
+		"title<.*Signal.*>": "󰍩 ",
+		"title<.*whatsapp.*>": " ",
+		"title<.*zapzap.*>": " ",
+		"title<.*messenger.*>": " ",
+		"title<.*facebook.*>": " ",
+		"title<.*Discord.*>": " ",
+
+		"title<.*ChatGPT.*>": "󰚩 ",
+		"title<.*deepseek.*>": "󰚩 ",
+		"title<.*qwen.*>": "󰚩 ",
+		"title<.*Gemini.*>": "󰚩 ",
+		"class<subl>": "󰅳 ",
+		"class<slack>": " ",
+
+		"class<mpv>": " ",
+		"class<celluloid|Zoom>": " ",
+		"class<Cider>": "󰎆 ",
+		"title<.*Picture-in-Picture.*>": " ",
+		"title<.*youtube.*>": " ",
+		"class<vlc>": "󰕼 ",
+		"class<[Kk]denlive|org.kde.kdenlive>": "🎬 ",
+		"title<.*Kdenlive.*>": "🎬 ",
+		"class<com.github.wwmm.easyeffects>": " ",
+		"title<.*cmus.*>": " ",
+		"class<[Ss]potify>": " ",
+		"class<Plex>": "󰚺 ",
+
+		"class<virt-manager>": " ",
+		"class<.virt-manager-wrapped>": " ",
+		"class<remote-viewer|virt-viewer>": " ",
+		"class<virtualbox manager>": "💽 ",
+		"title<virtualbox>": "💽 ",
+		"class<remmina|org.remmina.Remmina>": "🖥️ ",
+		"class<mainline-gtk>": " ",
+
+		"class<VSCode|code|code-url-handler|code-oss|codium|codium-url-handler|VSCodium>": "󰨞 ",
+		"class<[Aa]ntigravity>": "󰨞 ",
+		"title<.*[Aa]ntigravity.*>": "󰨞 ",
+		"class<dev.zed.Zed>": "󰵁",
+		"class<codeblocks>": "󰅩 ",
+		"title<.*github.*>": " ",
+		"class<com-jetpackduba-gitnuro-MainKt>": " ",
+		"title<.*Gitnuro.*>": " ",
+		"class<mousepad>": " ",
+		"class<libreoffice-writer>": " ",
+		"class<libreoffice-startcenter>": "󰏆 ",
+		"class<libreoffice-calc>": " ",
+		"title<.*nvim ~.*>": " ",
+		"title<.*vim.*>": " ",
+		"title<.*nvim.*>": " ",
+		"title<.*figma.*>": " ",
+		"title<.*jira.*>": " ",
+		"class<jetbrains-idea>": " ",
+		"class<emacs|Emacs>": " ",
+
+		"class<obs|com.obsproject.Studio>": " ",
+
+		"class<polkit-gnome-authentication-agent-1>": "󰒃 ",
+		"class<hyprpolkitagent>": "󰒃 ",
+		"class<com.github.hyprmod>": " ",
+		"class<nwg-look>": " ",
+		"class<vswaybar-studio>": "󰛼 ",
+		"class<nwg-displays>": " ",
+		"class<[Pp]avucontrol|org.pulseaudio.pavucontrol>": "󱡫 ",
+		"class<steam>": " ",
+		"class<thunar|nemo|org.gnome.Nautilus>": "󰝰 ",	
+		"class<Gparted>":"",
+		"class<timeshift-gtk>":"󰁯",
+		"class<btrfs-assistant>":"󰁯",
+		"class<gimp>": " ",
+		"class<emulator>": "📱 ",
+		"class<android-studio>": " ",
+		"class<org.pipewire.Helvum>": "󰓃",
+		"class<localsend>":"",
+		"class<PrusaSlicer|UltiMaker-Cura|OrcaSlicer>": "󰹛",
+		"class<nvidia-settings>": "󰢮 ",
+		"class<com.shellyorg.shelly>": "󰏗 ",
+
+		"class<io.github.kolunmi.Bazaar>": " ",
+		"title<^Bazaar$>": " ",
+
+		"class<com.gabm.satty>": " ",
+		"title<^satty$>": " ",
+
+		"class<[Bb]ox[Bb]uddy|io.github.dvlv.boxbuddy|io.github.dvlv.BoxBuddy>": " ",
+		"title<.*BoxBuddy.*>": " ",
+
+		"title<Hyprland Keybinds>": " ",
+		"title<Niri Keybinds>": " ",
+		"title<BSPWM Keybinds>": " ",
+		"title<DWM Keybinds>": " ",
+		"title<Emacs Leader Keybinds>": " ",
+		"title<Kitty Configuration>": " ",
+		"title<WezTerm Configuration>": " ",
+		"title<Yazi Configuration>": " ",
+		"title<Cheatsheets Viewer>": " ",
+		"title<Documentation Viewer>": " ",
+		"title<^Wallpapers$>": " ",
+		"title<^Video Wallpapers$>": " ",
+		"title<^qs-wlogout$>": " ",
+    }
+},
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M  %d %b %Y %a}",
+        "format-alt": "{:%d %b %Y (%A)}"
+    },
+
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "󰍛 {used:0.1f}G",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ar": "AR"
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+
+    "mpris": {
+        "format": "{status_icon} {title} - {artist}",
+        "format-paused": "{status_icon} <i>{title} - {artist}</i>",
+        "player-icons": {
+            "default": "" 
+        },
+
+        // status icons variable
+        "status-icons": {
+            "paused": "⏸"
+        },
+
+        // Allowed text Length
+        "max-length": 50,
+
+        // on click controls
+        "on-click": "playerctl play-pause",
+        "on-scroll-down": "playerctl previous",
+        "on-scroll-up": "playerctl next"
+    },
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/mic": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 1,
+        "exec": "/home/ixubux/.config/waybar/scripts/mic-control.sh",
+        "on-click": "/home/ixubux/.config/waybar/scripts/mic-control.sh toggle",
+        "tooltip": true
+    },
+
+    // Use this module and comment out the version up there 
+    // "custom/brightness": {
+    //     "format": "󰃠 {}%",
+    //     "exec": "brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'",
+    //     "interval": 2,
+    //     "on-scroll-up": "brightnessctl set +5%",
+    //     "on-scroll-down": "brightnessctl set 5%-",
+    //     "tooltip": false
+    // },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰟎",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "custom/updates": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "󱍷",
+            "updated": "󰂪"
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --network-interval-seconds 21600",
+        "on-click": "waybar-module-pacman-updates && pkill -RTMIN+8 waybar"
+    },
+
+    "custom/notification": {
+        "exec": "swaync-client -swb",
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱅫",
+            "dnd-none": "󰂛"
+        },
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "custom/power": {
+        "format" : "⏻",
+		"tooltip": false,
+		"on-click": "~/.config/hypr/scripts/powermenu.sh",    
+    }
+}
